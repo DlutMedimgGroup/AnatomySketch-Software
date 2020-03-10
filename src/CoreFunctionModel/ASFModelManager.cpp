@@ -1,0 +1,12 @@
+#include "ASFModelManager.h"
+
+ASFModelManager::ASFModelManager()
+{
+	// ×ÓÄ£¿éÊµÀý
+
+}
+
+ASFModelManager::~ASFModelManager()
+{
+
+}
