@@ -18,7 +18,8 @@ Anatomy Sketch（简称AS）是一款医学影像分割标注与自动化分析�
 
 ## 下载软件
 
-如果您想要下载软件试用，需要在Github项目中点击[release](https://github.com/DlutMedimgGroup/AnatomySketch-Software/releases)，并选择版本即可下载。如果想要运行软件基本功能，只需下载AnatomySketch-x.x.zip即可。其余文件为深度学习插件示例或软件源代码，您可以阅读软件说明书后下载使用。
+如果您想要下载软件试用，需要在Github项目中点击[release](https://github.com/DlutMedimgGroup/AnatomySketch-Software/releases)，并选择版本即可下载。如果想要运行软件，只需下载AnatomySketch-x.x.zip即可，无需下载其余文件。其余文件中dense_vnet_abdominal_ct.zip和vgg19_se_block_model.zip为深度学习插件示例，在软件说明书中有更为详细的介绍，如果您想体验在AS软件中调用深度学习算法，可以下载试用。Source code为软件源代码，用于软件的编译。
+
 
 在下载解压后您会得到一个文件夹，本软件无需安装，双击AnatomySketch.exe即可运行。在软件中点击帮助按钮可以查看软件的详细使用说明书。
 
