@@ -48,7 +48,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;版本： Anatomy Sketch 3.5.0&lt;/p&gt;&lt;p&gt;开发： 大连理工大学医学影像研究组&lt;/p&gt;&lt;p&gt;邮箱： mingruizhuang@foxmail.com &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;版本： Anatomy Sketch 1.0&lt;/p&gt;&lt;p&gt;开发： 大连理工大学医学影像研究组&lt;/p&gt;&lt;p&gt;邮箱： mingruizhuang@foxmail.com &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_logo">

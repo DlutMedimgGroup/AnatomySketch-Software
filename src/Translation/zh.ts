@@ -325,7 +325,7 @@
     <message>
         <location filename="../CoreFunctionModel/ASFModelContour.cpp" line="269"/>
         <source>Contour data</source>
-        <translation type="unfinished">轮廓线数据</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -931,7 +931,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../Transmission/ASTransContour.cpp" line="108"/>
         <location filename="../Transmission/ASTransContour.cpp" line="138"/>
         <source>Contour data</source>
-        <translation type="unfinished">轮廓线数据</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
