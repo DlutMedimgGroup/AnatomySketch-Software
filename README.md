@@ -1,6 +1,6 @@
 # AnatomySketch-Software
 
-Anatomy Sketch（简称AS）是由***大连理工大学医学影像研究组**（http://biomedimg-dlut-edu.cn/）* 开发的一款医学影像分割标注与自动化分析处理的科研用软件，主要功能特点包括：
+Anatomy Sketch（简称AS）是由[**大连理工大学医学影像研究组**](http://biomedimg-dlut-edu.cn/index.html)，在校研究生庄明睿主要开发的一款医学影像分割标注与自动化分析处理的科研用软件，主要功能特点包括：
 
 - 交互性：支持鼠标、触控屏、触控笔操作，方便进行医学图像分割标注。软件界面设计力求简洁并为交互提供便利。
 
