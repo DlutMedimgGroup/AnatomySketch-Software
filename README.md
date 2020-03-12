@@ -16,6 +16,9 @@ Anatomy Sketch（简称AS）是由[**大连理工大学医学影像研究组**](
 
 由于软件完全由在校研究生开发，就像第一代iphone一样，难免存在各种缺陷，请您不吝批评。开发团队诚挚邀请有软件开发经验的高手加盟（可以有偿），共同推动这样一个开源平台的进步，实现共赢。
 
+开发团队：
+庄明睿（博士生），杨宇欣（本科生），刘浩（硕士生），郭云涛（本科生），蔺博麟（本科生），王洪凯（指导教师）
+
 ## 下载软件
 
 如果您想要下载软件试用，需要在Github项目中点击[release](https://github.com/DlutMedimgGroup/AnatomySketch-Software/releases)，并选择版本即可下载。如果想要运行软件，只需下载AnatomySketch-x.x.zip即可，无需下载其余文件。其余文件中dense_vnet_abdominal_ct.zip和vgg19_se_block_model.zip为深度学习插件示例，在软件说明书中有更为详细的介绍，如果您想体验在AS软件中调用深度学习算法，可以下载试用。Source code为软件源代码，用于软件的编译。
