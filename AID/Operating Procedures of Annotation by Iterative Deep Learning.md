@@ -2,6 +2,8 @@
 
 Since 3D medical data labeling takes a lot of time, the problem of lack of labels is often encountered when training deep neural networks. This hinders the use of the excellent method of deep network to solve practical problems. This article introduces a method of iterative annotation and training using AnatomySketch (AS). The main process of this method includes (a) Annotate a small amount of data (for example, 5 cases) to train an initial network. (b) Use the initial network to segment more data to get their labels, although these labels may not be perfectly accurate. （c) Use AnatomySketch to correct these tags. Correction is easier than annotating from scratch, which reduces the workload. (d) Use a larger training set to train a better performance network. This process can continue until enough labels are obtained and a network with sufficient performance is trained.
 
+Tips: The minimum version of AnatomySketch is 1.1.
+
 ## Initial annotation
 
 You can determine the amount of data used for the first training based on the size of the data set. Since the network used is 2D, it is enough to annotate about 5 cases of data at the beginning. The following describes the method of using AnatomySketch to annotate data. After opening the AS software, use the "Open" or “DICOM” button to import the data. Let’s take an example of annotating a left kidney in CT data. The name of data used in the example is "102_image". 
@@ -50,11 +52,11 @@ The results of the initial network are not completely accurate, so manual correc
 
 Right-click on "112_image" in the upper left data list and select "New Segmentation". After creating a new segmentation, select the segmentation algorithm "Contour_InterpolationPlus" in the drop-down menu at the bottom left. Right-click on "Contour Data" in the upper left data list and select "Move to". Select the newly created partition, such as "Segmentation_0", as the moving target. The data list at this time should be as shown in Figure.
 
-<img src=".\figures\fig7.png" style="zoom:80%;" />
+<img src=".\figures\fig7.png" style="zoom:80%;text-align: center;" />
 
 In the algorithm parameter interface at the bottom left of the software, set “Target” as the target organ, such as “leftkidney”. Direction represents the direction of interpolation, and the default 2 represents axial. In addition, 0 means sagittal; 1 means coronal. 
 
-<img src=".\figures\fig8.png" style="zoom:80%;" />
+<img src=".\figures\fig8.png" style="zoom:80%;text-align: center;" />
 
 In the next step, you can start to correct the contour. Double-click the corresponding contour "leftkidney" at the upper left to make it bold. Select an appropriate slice in the view to make corrections. While holding down the space, you can use the mouse to drag the outline to complete the correction. In addition, you can also press and hold "d" and click a control point to delete it; or press and hold "a" and click the mouse to add a control point. After finishing the correction, hold down “s” and click any control point, and the outline will be thickened at this time. This means that the contour line is selected, and only the selected contour line will be input into the algorithm. For a relatively small organ like the liver, it is more appropriate to correct 5-7 layers. Try to make these layers evenly distributed and include the top and bottom layers. Finally click the "Calculate" button to get the result. 
 
