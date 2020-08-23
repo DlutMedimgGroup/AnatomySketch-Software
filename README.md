@@ -1,31 +1,29 @@
 # AnatomySketch-Software
 
-Anatomy Sketch（简称AS）是由[**大连理工大学医学影像研究组**](http://biomedimg-dlut-edu.cn/index.html)自研的一款医学影像分割标注与自动化分析处理的科研用软件，主要功能特点包括：
+AnatomySkectch (AS)  is a scientific research software developed by the [**Medical Imaging Research Group of Dalian University of Technology**](http://biomedimg-dlut-edu.cn/index.html) for segmentation, annotation and automated analysis of medical images. Its main features include:
 
-- 交互性：支持鼠标、触控屏、触控笔操作，方便进行医学图像分割标注。软件界面设计力求简洁并为交互提供便利。
+- Interactivity: Support mouse, touch screen, and stylus operation to facilitate segmentation and annotation of medical images. The software interface design strives to be concise and provide convenience for interaction.
+- Scalability: Support users to package self-compiled C++ or Python programs into plug-ins and integrate them into software (such as deep neural networks, etc.), which facilitates the realization of personalized functions in the graphical interface, and makes up for the lack of interactive interface carriers for current deep learning algorithms Defects. The software also comes with basic image and mesh processing functions (such as cropping, filtering, basic segmentation, mesh processing, DICOM image loading) to meet basic image processing functions.
+- Language: The software supports English or Chinese interface, which is convenient for various users.
+- Open source: software, including source code, is open source and free.
 
-- 可扩展性：支持用户将自编的C++或Python程序打包成插件集成到软件中（如深度神经网络等），便于在图形化界面中实现个性化功能，弥补了当前深度学习算法缺少交互界面载体的缺陷。软件还自带基本的图像图形处理功能（如裁剪、滤波、基本分割、图形曲面处理、DICOM图像载入），满足基本的图像处理功能。
+Everyone is welcome to download and try this software. After you download the software, open the software and click "Help" to read the detailed introduction of the software. You can also use the browser to open README.html after downloading the software to read the detailed introduction of the software.
 
-- 中文友好：软件主打中文界面，方便国内医生和科研人员操作。
+This is not a software for clinical applications. Our purpose is to provide a convenient prototype algorithm development platform for domestic engineers and doctors engaged in scientific research. We strive to establish a medical image processing algorithm exchange community based on this in the near future, and contribute to the first step in the transformation of scientific research results into clinical practice.
 
-- 开源免费，包括源代码。
+Because the software is completely developed by the graduate students in school. Just like the first-generation iPhone, there are inevitably various defects. Please feel free to criticize. The development team sincerely invites experts with software development experience to join (paid) to jointly promote the progress of such an open source platform and achieve a win-win situation.
 
-欢迎大家下载试用。您在下载软件后，打开软件，点击“帮助”阅读软件详细介绍。也可以在下载软件后，使用浏览器打开README.html来阅读软件详细介绍。
+Development team:
+Zhuang Mingrui (Ph.D student), Yang Yuxin (Undergraduate student), Liu Hao (Master student), Guo Yuntao (Undergraduate student), Lin Bolin (Undergraduate student), Wang Hongkai (Supervisor)
 
-这不是一款面向临床应用的软件。我们的目的是为国内从事科研工作的工程技术人员和医生群体提供一个便利的雏形算法开发平台，争取在不远的将来以此为基础建立医学图像处理算法交流社区，为科研成果向临床的第一步转化献一份力。
+## Download 
 
-由于软件完全由在校研究生开发，就像第一代iphone一样，难免存在各种缺陷，请您不吝批评。开发团队诚挚邀请有软件开发经验的高手加盟（可以有偿），共同推动这样一个开源平台的进步，实现共赢。
+To download software, you need to click [release](https://github.com/DlutMedimgGroup/AnatomySketch-Software/releases) in the Github project, and select the version. If you only want to run the software, download AnatomySketch-x.x.zip, no need to download the remaining files. The dense_vnet_abdominal_ct.zip and vgg19_se_block_model.zip in the remaining files are examples of deep learning plug-ins, which are described in more detail in the software manual. Source code is the software source code, used for software compilation. 
 
-开发团队：
-庄明睿（博士生），杨宇欣（本科生），刘浩（硕士生），郭云涛（本科生），蔺博麟（本科生），王洪凯（指导教师）
+##  Annotation by Iterative Deep Learning (AID)
 
-## 下载软件
+Since 3D medical data labeling takes a lot of time, the problem of lack of labels is often encountered when training deep neural networks. This hinders the use of the excellent method of deep network to solve practical problems. [This article](https://github.com/DlutMedimgGroup/AnatomySketch-Software/blob/master/AID/Operating%20Procedures%20of%20Annotation%20by%20Iterative%20Deep%20Learning.md) introduces a method of iterative annotation and training using AnatomySketch.
 
-如果您想要下载软件试用，需要在Github项目中点击[release](https://github.com/DlutMedimgGroup/AnatomySketch-Software/releases)，并选择版本即可下载。如果想要运行软件，只需下载AnatomySketch-x.x.zip即可，无需下载其余文件。其余文件中dense_vnet_abdominal_ct.zip和vgg19_se_block_model.zip为深度学习插件示例，在软件说明书中有更为详细的介绍，如果您想体验在AS软件中调用深度学习算法，可以下载试用。Source code为软件源代码，用于软件的编译。
+## Compile
 
-
-在下载解压后您会得到一个文件夹，本软件无需安装，双击AnatomySketch.exe即可运行。在软件中点击帮助按钮可以查看软件的详细使用说明书。
-
-## 编译软件
-
-如果您想编译本软件的源代码，需要安装cmake，并试用cmake编译得到sln工程，之后使用Visual Studio编译该工程即可。该项目使用c/c++编写，并且只能在windows环境下运行，编译工程需要用到的库有：Qt、VTK、ITK。
+If you want to compile the source code of this software, you need to install cmake. Use cmake to compile the sln project, and then use Visual Studio to compile the project. The project is written in c/c++ and can only be run in the windows environment. The libraries needed to compile the project are: Qt, VTK, ITK.
