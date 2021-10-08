@@ -18,7 +18,7 @@ Zhuang Mingrui (Ph.D student), Yang Yuxin (Undergraduate student), Liu Hao (Mast
 
 ## Download 
 
-To download software, you need to click [release](https://github.com/DlutMedimgGroup/AnatomySketch-Software/releases) in the Github project, and select the version. If you only want to run the software, download AnatomySketch-x.x.zip, no need to download the remaining files. The dense_vnet_abdominal_ct.zip and vgg19_se_block_model.zip in the remaining files are examples of deep learning plug-ins, which are described in more detail in the software manual. Source code is the software source code, used for software compilation. 
+To download software, you need to click [release](https://github.com/DlutMedimgGroup/AnatomySketch-Software/releases) in the Github project, and select the version. If you only want to run the software, download AnatomySketch-x.x.zip (The "_en" suffix indicates the English version), no need to download the remaining files. The dense_vnet_abdominal_ct.zip and vgg19_se_block_model.zip in the remaining files are examples of deep learning plug-ins, which are described in more detail in the software manual. Source code is the software source code, used for software compilation. 
 
 ##  Annotation by Iterative Deep Learning (AID)
 
