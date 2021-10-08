@@ -7,7 +7,7 @@ AnatomySkectch (AS)  is a scientific research software developed by the [**Medic
 - Language: The software supports English or Chinese interface, which is convenient for various users.
 - Open source: software, including source code, is open source and free.
 
-Everyone is welcome to download and try this software. After you download the software, open the software and click "Help" to read the detailed introduction of the software. You can also use the browser to open README.html after downloading the software to read the detailed introduction of the software.
+Everyone is welcome to download and try this software. After you download the software, open the software and click "Help" to read the detailed introduction of the software. User manual is provided [here](https://github.com/DlutMedimgGroup/AnatomySketch-Software/blob/master/UserManual.md) in English and [here](https://github.com/DlutMedimgGroup/AnatomySketch-Software/blob/master/UserManual_ch.md) in Chinese.
 
 This is not a software for clinical applications. Our purpose is to provide a convenient prototype algorithm development platform for domestic engineers and doctors engaged in scientific research. We strive to establish a medical image processing algorithm exchange community based on this in the near future, and contribute to the first step in the transformation of scientific research results into clinical practice.
 
