@@ -1,6 +1,6 @@
 # Operating Procedures of Annotation by Iterative Deep Learning
 
-Since 3D medical data labeling takes a lot of time, the problem of lack of labels is often encountered when training deep neural networks. This hinders the use of the excellent method of deep network to solve practical problems. This article introduces a method of iterative annotation and training using AnatomySketch (AS). The main process of this method includes (a) Annotate a small amount of data (for example, 5 cases) to train an initial network. (b) Use the initial network to segment more data to get their labels, although these labels may not be perfectly accurate. （c) Use AnatomySketch to correct these tags. Correction is easier than annotating from scratch, which reduces the workload. (d) Use a larger training set to train a better performance network. This process can continue until enough labels are obtained and a network with sufficient performance is trained.
+Since 3D medical data labeling takes a lot of time, the problem of lack of labels is often encountered when training deep neural networks. This hinders the use of the excellent method of deep network to solve practical problems. This article introduces a method of iterative annotation and training using AnatomySketch (AS). The main process of this method includes (a) Annotate a small amount of data (for example, 5 cases) to train an initial network. (b) Use the initial network to segment more data to get their labels, although these labels may not be perfectly accurate. （c) Use AnatomySketch to correct these tags. Correction is easier than annotating from scratch, which reduces the workload. (d) Use a larger training set to train a better performance network. This process can continue until enough labels are obtained and a network with sufficient performance is trained. Sample data and models can be downloaded [here](https://1drv.ms/u/s!AiAogjEIFaXOgcM-sEa-0yiM1wZsfQ?e=Xema6Z).
 
 Tips: The minimum version of AnatomySketch is 1.1.
 
@@ -30,11 +30,13 @@ At this time, in the three 2D views, you can drag the mesh while holding down "C
 
 ## Initial Network Training
 
-The following introduction and sample code take as an example the multi-organ segmentation containing four organs: kidney, left kidney, right kidney, and spleen. Place the original CT image under the “./image” path, and place the marked mesh under the “./mesh” path. Change the name of the original CT to 101_imgae, 102_image... Change the name of the corresponding STL file to 101_liver_mesh, 101_leftkidney_mesh, 101_rightkidney_mesh, 101_spleen_mesh, 102_liver_mesh... Then run "./python/dataset_generate.py", and the result will be saved in "./slice_dataset". In the folder there are three folders: “annotations”, “img”, and “mask”, which are the annotations of the slice data, the slice data itself, and the slice label that is convenient for users to observe. For the process of generating 2D slice data, there are several points to note. The format of the generated 2D data is *.jpg. The window level used in the conversion of gray value is [400, 20]. In addition, different slices of the kidney and spleen are set to the same label, while the liver is set to three different labels from top to bottom.
+The following introduction and sample code take as an example the multi-organ segmentation containing four organs: kidney, left kidney, right kidney, and spleen. Place the original CT image under the “./image” path, and place the marked mesh under the “./mesh” path. Change the name of the original CT to 101_imgae, 102_image... Change the name of the corresponding STL file to 101_liver_mesh, 101_leftkidney_mesh, 101_rightkidney_mesh, 101_spleen_mesh, 102_liver_mesh... Then run "./python/dataset_generate.py", and the result will be saved in "./slice_dataset". (This corresponds to the "0_Slice_Data" folder in [the sample data](https://1drv.ms/u/s!AiAogjEIFaXOgcM-sEa-0yiM1wZsfQ?e=Xema6Z).) In the folder there are three folders: “annotations”, “img”, and “mask”, which are the annotations of the slice data, the slice data itself, and the slice label that is convenient for users to observe. For the process of generating 2D slice data, there are several points to note. The format of the generated 2D data is *.jpg. The window level used in the conversion of gray value is [400, 20]. In addition, different slices of the kidney and spleen are set to the same label, while the liver is set to three different labels from top to bottom.
 
-After the grouped slice data is obtained, the initial network training can be carried out. At this time, we need a workstation with Linux operating system and complete the network environment configuration. (network GitHub link) Copy the two folders "annotations" and "img" of the previously generated Group_1 data to the "./data/MyCT/" path of the segmented network project in the Linux workstation. Use this statement to train the network in the project root directory: “python train_net.py --cfg_file configs/my_ct_snake.yaml model my_ct_snake”. 
+After the grouped slice data is obtained, the initial network training can be carried out. At this time, we need a workstation with Linux operating system and complete the network environment configuration. (Copy the "snake" folder to Linux system or just clone from this [site](https://github.com/zju3dv/snake).) Copy the two folders "annotations" and "img" of the previously generated Group_1 data to the "./data/MyCT/" path of the segmented network project in the Linux workstation. Use this statement to train the network in the project root directory: “python train_net.py --cfg_file configs/my_ct_snake.yaml model my_ct_snake”. 
 
 We used 4 NVIDIA Tesla P40 GPUs during network training and 300 epochs iterated. The initial lr is 1e-4, and it is halved at (80, 120, 150, 170) epochs. If you need to modify the network parameters, you can edit "./configs/my_ct_snkae.yaml". The trained network model file will be stored in "./data/model/snake/my_ct_snake".
+
+The trained model corresponds to the "1_Initial_Pth" folder in [the sample data](https://1drv.ms/u/s!AiAogjEIFaXOgcM-sEa-0yiM1wZsfQ?e=Xema6Z).
 
 ## Initial Network Training Inference
 
@@ -42,7 +44,7 @@ After completing the training, use the trained network to segment more data. Use
 
  “python run.py --type visualize --cfg_file configs/my_ct_snake.yaml test.dataset MyCTVal ct_score 0.3 model my_ct_snake”. The network output results are stored in "./data/result". Copy the output results of the network twice back to the local Windows computer and save it in: "./network_ouput".
 
-The direct output format of the network is json, and you need to run “./python/post_processing.py” to convert it into a 3D label map and contour file. In addition to the file format conversion, the post-processing program also performs morphological operations, including opening operations, closing operations, and extracting the largest connected domain. 
+The direct output format of the network is json, and you need to run “./python/post_processing.py” to convert it into a 3D label map and contour file (This corresponds to the "2_Results_3d_Label" and "3_Results_3d_ctr" in [the sample data](https://1drv.ms/u/s!AiAogjEIFaXOgcM-sEa-0yiM1wZsfQ?e=Xema6Z).). In addition to the file format conversion, the post-processing program also performs morphological operations, including opening operations, closing operations, and extracting the largest connected domain. 
 
 ## Interactive Correction
 
@@ -66,6 +68,8 @@ The result of the correction can be further corrected. At this time, there shoul
 
 <img src=".\figures\fig10.png" style="zoom:80%;" />
 
+The correction result corresponds to the "4_Results_Corrected" folder in [the sample data](https://1drv.ms/u/s!AiAogjEIFaXOgcM-sEa-0yiM1wZsfQ?e=Xema6Z).
+
 ## Follow-up Network Training
 
-At this time, we have obtained more accurate data labels through corrections. At this point we can use more data to train a better performance network with the same steps as the initial training. If the performance is still not good enough, you can continue this iterative process.
+At this time, we have obtained more accurate data labels through corrections. At this point we can use more data to train a better performance network with the same steps as the initial training. If the performance is still not good enough, you can continue this iterative process. [The sample data](https://1drv.ms/u/s!AiAogjEIFaXOgcM-sEa-0yiM1wZsfQ?e=Xema6Z) also shows a improve model in the "5_Improved_Pth" folder.
